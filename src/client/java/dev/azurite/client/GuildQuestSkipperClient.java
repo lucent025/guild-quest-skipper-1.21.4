@@ -78,13 +78,25 @@ public class GuildQuestSkipperClient implements ClientModInitializer {
 
 		while (activateKey.wasPressed()) {
 
-			if (state == State.IDLE ||
-					state == State.WAITING_NEXT_CYCLE) {
+			if (state == State.IDLE) {
 
+				// BẬT MOD
 				startCycle(client);
-			}
-			else {
+
+				client.player.sendMessage(
+						Text.literal("§a[Auto Skip Quest] §fĐã bật"),
+						true
+				);
+
+			} else {
+
+				// TẮT MOD
 				stopBot(client);
+
+				client.player.sendMessage(
+						Text.literal("§c[Auto Skip Quest] §fĐã tắt"),
+						true
+				);
 			}
 		}
 
